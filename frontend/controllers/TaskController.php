@@ -31,5 +31,7 @@ class TaskController extends Controller {
     // Удаление задачи
     public function actionRemove($id = null) {
 
+        $model = Task::findOne($id)->delete();
+        return $this->redirect(['index']);
     }
 }
