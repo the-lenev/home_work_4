@@ -21,6 +21,14 @@ class TaskController extends Controller {
     // Добавление задачи в список
     public function actionCreate() {
 
+        $model = new Task();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
     }
 
     // Редактирование задачи
