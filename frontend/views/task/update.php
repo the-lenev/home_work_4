@@ -1,14 +1,17 @@
 <?php
-
+// Подключаем класс для работы с разметкой
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
 
-$this->title = 'Редактировать дело';
+// Устанавливаем title
+$this->title = 'Редактировать задачу';
+// Добавляем title в дорогу (хлебные крошки)
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<!-- Отображыем title -->
 <h1><?= Html::encode($this->title) ?></h1>
 
 <?=
+// Подключаем отдельный шаблон для формы и передаем в него данные модели
 $this->render('_form', [
     'model' => $model
 ]);

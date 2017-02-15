@@ -1,6 +1,7 @@
 <?php
-
+// Определяем пространство имен
 namespace frontend\models;
+// Подключаем базовый (родительский) класс
 use yii\db\ActiveRecord;
 
 class Task extends ActiveRecord {

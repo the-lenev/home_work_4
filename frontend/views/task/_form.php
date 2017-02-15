@@ -1,17 +1,30 @@
 <?php
+// Подключаем класс для работы с разметкой
 use yii\helpers\Html;
+// Подключаем класс для работы с формами
 use yii\bootstrap\ActiveForm;
 ?>
 
 <div class="row col-sm-12">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    // Открываем форму
+    $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'date')->label('Дата');?>
-        <?= $form->field($model, 'text')->label('Задача'); ?>
+        <?=
+        // Добавляем поле, соответствующее полю 'date' в таблице и устанавливаем его описание (метку)
+        $form->field($model, 'date')->label('Дата');?>
+        <?=
+        // Добавляем поле, соответствующее полю 'text' в таблице и устанавливаем его описание (метку)
+        $form->field($model, 'text')->label('Задача'); ?>
 
         <div class="form-group">
-            <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?=
+            // Добавляем кнопку отправки формы
+            // В зависимости от типа записи (новая/редактирование) меняем её описание и цвет
+            Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php
+    // Закрываем форму
+    ActiveForm::end(); ?>
 </div>
