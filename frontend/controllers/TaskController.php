@@ -33,6 +33,15 @@ class TaskController extends Controller {
 
     // Редактирование задачи
     public function actionUpdate($id = null) {
+        
+        $model = Task::findOne($id);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
 
     }
 
