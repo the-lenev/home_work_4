@@ -12,6 +12,10 @@ class TaskController extends Controller {
     // Отображение списка задач
     public function actionIndex() {
 
+        $model = Task::find()->orderBy('date')->asArray()->all();
+        return $this->render('index', [
+        'model' => $model
+        ]);
     }
 
     // Добавление задачи в список
