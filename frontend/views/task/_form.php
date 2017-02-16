@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 // Подключаем класс для работы с формами
 use yii\bootstrap\ActiveForm;
+// Класс для работы с датой
+use yii\jui\DatePicker;
 ?>
 
 <div class="row col-sm-12">
@@ -12,7 +14,13 @@ use yii\bootstrap\ActiveForm;
 
         <?=
         // Добавляем поле, соответствующее полю 'date' в таблице и устанавливаем его описание (метку)
-        $form->field($model, 'date')->label('Дата');?>
+        $form->field($model, 'date')->widget(DatePicker::classname(), [
+                'attribute' => 'date',
+                'language' => 'ru',
+                'dateFormat' => 'yyyy-MM-dd',
+            ]
+        )->textInput()->label('Дата');
+        ?>
         <?=
         // Добавляем поле, соответствующее полю 'text' в таблице и устанавливаем его описание (метку)
         $form->field($model, 'text')->label('Задача'); ?>

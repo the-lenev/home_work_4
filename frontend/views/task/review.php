@@ -30,4 +30,5 @@ $this->params['breadcrumbs'][] = $this->title;
             <div style="clear:both"></div>
         </div>
     </div>
+    <a class="btn btn-success" href="/?r=task/">Вернуться к списку</a>
 </div>

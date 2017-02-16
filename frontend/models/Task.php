@@ -14,7 +14,10 @@ class Task extends ActiveRecord {
     // Правила обработки полей
     public function rules() {
         return [
-            [['date', 'text'], 'required'],
+            [['date', 'text'], 'required', 'message' => 'Поле обязательно для заполнения'],
+            [['date'], 'default', 'value' => null],
+            [['date'], 'date', 'format' => 'yyyy-MM-dd', 'message' => 'Введена некорректная дата'],
+            [['text'], 'string', 'max' => 255, 'message' => 'Превышено максимально допустимое количество символов'],
         ];
     }
 
