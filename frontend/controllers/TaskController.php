@@ -60,4 +60,14 @@ class TaskController extends Controller {
         // Переходим на шаблон index
         return $this->redirect(['index']);
     }
+
+    // Просмотр задачи
+    public function actionReview($id = null) {
+        // Находим запись по ключу
+        $model = Task::findOne($id);
+        // Отображаем её
+        return $this->render('review', [
+            'model' => $model,
+        ]);
+    }
 }
